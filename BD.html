@@ -1,0 +1,326 @@
+<html>
+<head>
+<style>         
+        header {
+          background-color: #003d89;
+          color: white;
+          font-family: ariel, sans-serif;
+          font-size: 36px;
+          padding: 20px;
+          text-align: center;
+        }
+       .container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .table {
+          position: relative;
+          width: 50%;
+        }
+        h1 {
+          font-family: "Noto Kufi Arabic", sans-serif;
+          font-size: 28px
+        }
+        h2 {
+          text-align:center;
+          font-family: calibri, sans-serif;
+          font-size: 28px
+        }  
+        h3 {
+          text-align:center;
+          font-family: calibri, sans-serif;
+          font-size: 28px
+        }
+        p {
+          font-family: calibri, sans-serif;
+          font-size: 16px
+        }
+        .highlight {
+          display: inline;
+          padding: .10em 0;
+          background: #a7e0f6;
+          box-shadow: .2em 0 0 #a7e0f6, -.2em 0 0 #a7e0f6;
+        }
+        .button {
+          background-color: #003d89;
+          border: none;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+          font-family: calibri;
+          color: white;
+          padding: 6px 12px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 24px;
+          margin: 3px 1px;
+          cursor: pointer;
+        }
+        .button:hover {
+          background: #00bd68;
+        }
+        .button:focus {
+          background: #00bd68;
+        }        
+        .button:active {
+          background-color: #3e8e41;
+          transform: translateY(3px);
+        } 
+        .image {
+          width: 100px;
+          height: 100px;
+        }
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          background-color: #F2F3F5;
+          color: Black;
+          font-family: calibri;
+          font-weight: bold; 
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 10px;
+          position: absolute;
+          z-index: 1;
+          top: 105%;
+          left: 15%;
+          margin-left: -0px;
+        }
+        .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent #F2F3F5 transparent; 
+        }
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+        }
+</style>
+<script>
+  function copyText(text) {
+    navigator.clipboard.writeText(text);
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied";
+  }
+
+  function outFunc() {
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Click to Copy";
+  }
+
+  function showSubcategories(category) {
+    var title = document.getElementById("subcat-title");
+    var buttons = document.getElementById("subcat-buttons");
+    title.innerHTML = "Subcategories of " + category;
+    buttons.innerHTML = "";
+    var subcategories = {
+      "Cutting BD": ["Applicator Problem", "Schleuniger", "Komax", "Ulmer"],
+      "Crimping BD": ["Applicator Change", "Crimping Press"],
+      "Shrinking BD": ["DSG Canusa", "Heat Gun"],
+      "Testing BD": ["Clip Gun","Grommet","layup","Line & Carousel","Pin Punching","Printer","Seal Machine","Test Module","Test Table"],
+      "Stripping BD": ["Stripping M/C"],
+      "Twisting BD": ["Twisting M/C"],
+      "Welding BD": ["USS M/C"],
+      "Taping BD": ["Taping M/C"],
+      "Soldering BD": ["Solder"]
+    };
+    var subsubcategories = {
+      "Applicator Problem": ["Scan Applicator ID"], 
+      "Schleuniger": ["Machine Problem"], 
+      "Komax": ["CAO Problem", "CFA Problem", "Crimping Problem", "Gripper Problem", "PC Problem", "Press Problem", "Seal station Problem", "Stripping Problem", "Swivel Problem", "Topwin Problem", "Wire Drive Problem", "Wire length Problem", "Wire Tray Problem"],
+      "Ulmer": ["Ulmer Machine Problem"],
+      "Applicator Change": ["Applicator Change Problem"], 
+      "Crimping Press": ["Crimping Press Problem"], 
+      "DSG Canusa": ["Heaters Problem", "Shrinking Cap Problem", "Shrinking Machine Problem"], 
+      "Heat Gun": ["Heat Gun Problem", "Shrink Problem"], 
+      "Clip Gun": ["Clip Gun Problem"], 
+      "Grommet": ["Grommet Problem"], 
+      "layup": ["layup Problem"], 
+      "Line & Carousel": ["المبة لا تعمل", "أعطال المحرك", "سرعة المحرك غير ثابتة"], 
+      "Pin Punching": ["Pin Punching Problem"], 
+      "Printer": ["Printer Problem"], 
+      "Seal Machine": [" الماكينة لا تعمل", "السيل لا يدخل التراك"], 
+      "Test Module": ["Test Module number is:"], 
+      "Test Table": ["التست لا يعمل", "الكشاف  لا يعمل", "وجود مشكلة فى الاسكان"], 
+      "Twisting M/C": ["Twist Clamp Problem", "Twist Door problem", "Twist Problem"], 
+      "USS M/C": ["Terminal Change", "Welding Machine Problem", "Welding Problem"], 
+      "Taping M/C": ["Tapping problem", "Tapping Touch Screen Problem"], 
+      "Solder": ["Solder Problem"]
+    };
+    for (var i = 0; i < subcategories[category].length; i++) {
+      var subcat = subcategories[category][i];
+      var button = document.createElement("button");
+      button.className = "button";
+      button.innerHTML = subcat;
+      button.onclick = function() {
+        copyText(this.innerHTML);
+        showSubsubcategories(this.innerHTML);
+      };
+      buttons.appendChild(button);
+    }
+  }
+
+  function showSubsubcategories(subcategory) {
+    var title = document.getElementById("subsubcat-title");
+    var buttons = document.getElementById("subsubcat-buttons");
+    title.innerHTML = "Faults For " + subcategory;
+    buttons.innerHTML = "";
+    var subsubcategories = {
+      "Applicator Problem": ["Scan Applicator ID"], 
+      "Schleuniger": ["Machine Problem"], 
+      "Komax": ["CAO Problem", "CFA Problem", "Crimping Problem", "Gripper Problem", "PC Problem", "Press Problem", "Seal station Problem", "Stripping Problem", "Swivel Problem", "Topwin Problem", "Wire Drive Problem", "Wire length Problem", "Wire Tray Problem"],
+      "Ulmer": ["Ulmer Machine Problem"],
+      "Applicator Change": ["Applicator Change Problem"], 
+      "Crimping Press": ["Crimping Press Problem"], 
+      "DSG Canusa": ["Heaters Problem", "Shrinking Cap Problem", "Shrinking Machine Problem"], 
+      "Heat Gun": ["Heat Gun Problem", "Shrink Problem"], 
+      "Clip Gun": ["Clip Gun Problem"], 
+      "Grommet": ["Grommet Problem"], 
+      "layup": ["layup Problem"], 
+      "Line & Carousel": ["المبة لا تعمل", "أعطال المحرك", "سرعة المحرك غير ثابتة"], 
+      "Pin Punching": ["Pin Punching Problem"], 
+      "Printer": ["Printer Problem"], 
+      "Seal Machine": [" الماكينة لا تعمل", "السيل لا يدخل التراك"], 
+      "Test Module": ["Test Module number is:"], 
+      "Test Table": ["التست لا يعمل", "الكشاف  لا يعمل", "وجود مشكلة فى الاسكان"], 
+      "Twisting M/C": ["Twist Clamp Problem", "Twist Door problem", "Twist Problem"], 
+      "USS M/C": ["Terminal Change", "Welding Machine Problem", "Welding Problem"], 
+      "Taping M/C": ["Tapping problem", "Tapping Touch Screen Problem"], 
+      "Solder": ["Solder Problem"]
+    };
+    for (var i = 0; i < subsubcategories[subcategory].length; i++) {
+      var subsubcat = subsubcategories[subcategory][i];
+      var button = document.createElement("button");
+      button.className = "button";
+      button.innerHTML = subsubcat;
+      button.onclick = function() {
+        copyText(this.innerHTML);
+      };
+      buttons.appendChild(button);
+    }
+  }
+</script>
+</head>
+    <header style="text-align:center;"><b>PM Notification Assistant</b></header>
+    <h1 dir="rtl" style="text-align:center;">اختر نوع العطل   <span style="text-align:center; font-family: calibri"><b>Choose Breakdown Type</b></span></h1>
+    <p dir="rtl" style="text-align:center" >اضغط على <b><span style="color: #003d89">المربع الأزرق</span></b>  لنسخ&nbsp;&nbsp; Press <b><span style="color: #003d89">Blue Button</span></b> to copy&nbsp;&nbsp;<span class="highlight">Notification Short Text</span></p>
+    <!-- Table for the main categories -->
+    <br>
+<body>
+<!-- 1: Cutting BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Cutting BD.png" alt="Cutting BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Cutting BD'); showSubcategories('Cutting BD')" onmouseout="outFunc()">Cutting BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 2: Crimping BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Crimping BD.png" alt="Crimping BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Crimping BD'); showSubcategories('Crimping BD')" onmouseout="outFunc()">Crimping BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 3: Shrinking BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Shrinking BD.png" alt="Shrinking BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Shrinking BD'); showSubcategories('Shrinking BD')" onmouseout="outFunc()">Shrinking BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 4: Testing BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Testing BD.png" alt="Testing BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Testing BD'); showSubcategories('Testing BD')" onmouseout="outFunc()">Testing BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 5: Stripping BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Stripping BD.png" alt="Stripping BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Stripping BD'); showSubcategories('Stripping BD')" onmouseout="outFunc()">Stripping BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 6: Twisting BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Twisting BD.png" alt="Twisting BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Twisting BD'); showSubcategories('Twisting BD')" onmouseout="outFunc()">Twisting BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 7: Welding BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Welding BD.png" alt="Welding BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Welding BD'); showSubcategories('Welding BD')" onmouseout="outFunc()">Welding BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<!-- 8: Taping BD -->
+<div class="tooltip">
+  <table>
+    <tr>
+      <td style="text-align:center;">
+        <img src="Taping BD.png" alt="Taping BD" width="150" height="100" >
+        <br>
+        <button class="button" onclick="copyText('Taping BD'); showSubcategories('Taping BD')" onmouseout="outFunc()">Taping BD</button>
+          <span class="tooltiptext" id="myTooltip">Click to Copy</span>
+      </td>  
+    </tr>
+  </table>  
+</div>
+<h2 id="subcat-title"></h2>
+<div id="subcat-buttons"></div>
+<h3 id="subsubcat-title"></h3>
+<div id="subsubcat-buttons"></div>
+</body>
+</html>
