@@ -1,11 +1,12 @@
-function copyText(text) {
-    navigator.clipboard.writeText(text);
-    var tooltip = document.getElementById("myTooltip");
+function copyText(button) {
+    malfunctionLabel = button.textContent
+    navigator.clipboard.writeText(malfunctionLabel);
+    var tooltip = button.nextElementSibling;
     tooltip.innerHTML = "Copied";
   }
 
-  function outFunc() {
-    var tooltip = document.getElementById("myTooltip");
+  function outFunc(button) {
+    var tooltip = button.nextElementSibling;
     tooltip.innerHTML = "Click to Copy";
   }
 
