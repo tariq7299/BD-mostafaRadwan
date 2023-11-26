@@ -1,9 +1,20 @@
+function copyTextAndShowCatg(button) {
+  malfunctionLabel = button.textContent;
+  navigator.clipboard.writeText(malfunctionLabel);
+}
+
+
 function copyText(text) {
     navigator.clipboard.writeText(text);
     var tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Copied";
   }
 
+  function showMessage() {
+    document.getElementById("myTooltip").style.display = 'block';
+  }
+
+ 
   function outFunc() {
     var tooltip = document.getElementById("myTooltip");
     tooltip.innerHTML = "Click to Copy";
