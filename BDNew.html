@@ -20,31 +20,48 @@
         <p dir="rtl" style="text-align:center" >اضغط على <b><span style="color: #003d89">المربع الأزرق</span></b>  لنسخ&nbsp;&nbsp; Press <b><span style="color: #003d89">Blue Button</span></b> to copy&nbsp;&nbsp;<span class="highlight">Notification Short Text</span></p>
         <!-- Table for the main categories -->
         <br>
-        <!-- 1: Cutting BD -->
+
         <table>
             <tr>
 
-                <td style="text-align:center;" class="tooltip">
-                <img src="Cutting BD.png" alt="Cutting BD" width="150" height="100" >
-                <br>
-                <button type="button" class="button" onclick="copyText(this); showSubcategories('Cutting BD')" onmouseout="outFunc(this)">Cutting BD</button>
-                <span class="tooltiptext">Click to Copy</span>
+                <td class="tooltip">
+                    <img src="Cutting BD.png" alt="Cutting BD"  >
+                    <button type="button" class="button" onclick="copyText(this); showSubcategories('Cutting BD')" onmouseout="outFunc(this)">Cutting BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
                 </td> 
 
-                <td style="text-align:center;" class="tooltip">
-                <img src="Crimping BD.png" alt="Crimping BD" width="150" height="100" >
-                <br>
-                <button type="button" class="button" onclick="copyText(this); showSubcategories('Crimping BD')" onmouseout="outFunc(this)">Crimping BD</button>
-                <span class="tooltiptext">Click to Copy</span>
+                <td  class="tooltip">
+                    <img src="Crimping BD.png" alt="Crimping BD" >
+                    <button type="button" class="button" onclick="copyText(this); showSubcategories('Crimping BD')" onmouseout="outFunc(this)">Crimping BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
                 </td>  
-                
                   
             </tr>
-        </table>  
+        </table>
+
+        <div class="sub-category">
             <h2 id="subcat-title"></h2>
-            <div id="subcat-buttons"></div>
+            <table>
+                <tr class="sub-category-row">
+    
+                   
+                        
+                </tr>
+            </table>  
+        </div>
+            
+        <div class="sub-sub-category">
             <h3 id="subsubcat-title"></h3>
-            <div id="subsubcat-buttons"></div>
+            <table>
+                <tr>
+    
+                   
+                        
+                </tr>
+            </table>  
+        </div>
+        <!-- <div id="subcat-buttons"></div> -->
+        <!-- <div id="subsubcat-buttons"></div> -->
     
     </body>
 </html>

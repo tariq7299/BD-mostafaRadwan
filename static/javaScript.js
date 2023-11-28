@@ -10,21 +10,25 @@ function copyText(button) {
     tooltip.innerHTML = "Click to Copy";
   }
 
+
   function showSubcategories(category) {
-    var title = document.getElementById("subcat-title");
-    var buttons = document.getElementById("subcat-buttons");
-    title.innerHTML = "Subcategories of " + category;
-    buttons.innerHTML = "";
+    document.querySelector('.sub-category').style.display = 'block';
+    var subCatTitle = document.getElementById("subcat-title");
+    var row = document.querySelector(".sub-category-row");
+
+    subCatTitle.innerHTML = "Subcategories of " + category;
+    row.innerHTML = "";
+    
     var subcategories = {
-      "Cutting BD": ["Applicator Problem", "Schleuniger", "Komax", "Ulmer"],
-      "Crimping BD": ["Applicator Change", "Crimping Press"],
-      "Shrinking BD": ["DSG Canusa", "Heat Gun"],
-      "Testing BD": ["Clip Gun","Grommet","layup","Line & Carousel","Pin Punching","Printer","Seal Machine","Test Module","Test Table"],
-      "Stripping BD": ["Stripping M/C"],
-      "Twisting BD": ["Twisting M/C"],
-      "Welding BD": ["USS M/C"],
-      "Taping BD": ["Taping M/C"],
-      "Soldering BD": ["Solder"]
+        "Cutting BD": ["Applicator Problem", "Schleuniger", "Komax", "Ulmer"],
+        "Crimping BD": ["Applicator Change", "Crimping Press"],
+        "Shrinking BD": ["DSG Canusa", "Heat Gun"],
+        "Testing BD": ["Clip Gun","Grommet","layup","Line & Carousel","Pin Punching","Printer","Seal Machine","Test Module","Test Table"],
+        "Stripping BD": ["Stripping M/C"],
+        "Twisting BD": ["Twisting M/C"],
+        "Welding BD": ["USS M/C"],
+        "Taping BD": ["Taping M/C"],
+        "Soldering BD": ["Solder"]
     };
     var subsubcategories = {
       "Applicator Problem": ["Scan Applicator ID"], 
@@ -49,16 +53,31 @@ function copyText(button) {
       "Taping M/C": ["Tapping problem", "Tapping Touch Screen Problem"], 
       "Solder": ["Solder Problem"]
     };
+
     for (var i = 0; i < subcategories[category].length; i++) {
       var subcat = subcategories[category][i];
+
+      var td = document.createElement("td");
+      td.classList.add("tooltip");
+
       var button = document.createElement("button");
-      button.className = "button";
+       
+      var span = document.createElement("span");
+      span.innerHTML = "Click to Copy"
+      span.classList.add("tooltiptext");
+
       button.innerHTML = subcat;
       button.onclick = function() {
-        copyText(this.innerHTML);
-        showSubsubcategories(this.innerHTML);
-      };
-      buttons.appendChild(button);
+        copyText(this);
+        showSubsubcategories(this);
+      }
+      button.addEventListener("mouseout", function() {
+        outFunc(this);
+      });
+
+      td.appendChild(button);
+      td.appendChild(span);
+      row.appendChild(td);
     }
   }
 
