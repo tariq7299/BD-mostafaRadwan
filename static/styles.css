@@ -1,4 +1,96 @@
-.hidden {
+body {
+  text-align: center;
+}
+
+.header1 {
+  background-color: #003d89;
+  color: white;
+  font-family: ariel, sans-serif;
+  font-size: 36px;
+  padding: 26px;
+}
+
+.header2 .header2-english {
+  font-family: Calibiri;
+  font-size: 25px;
+}
+.header2 .header2-arabic {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-size: 20px;
+}
+
+.bold-blue {
+  color: #003d89;
+  font-weight: bold;
+}
+
+.highlight {
+  display: inline;
+  padding: 0.1em 0;
+  background: #a7e0f6;
+  box-shadow: 0.2em 0 0 #a7e0f6, -0.2em 0 0 #a7e0f6;
+}
+
+.note {
+  margin-top: 50px;
+}
+
+table {
+  margin: auto;
+}
+
+button {
+  background-color: #003d89;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  font-family: calibri;
+  color: white;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+  margin: 3px 1px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #00bd68;
+}
+button:focus {
+  background-color: #00bd68;
+}
+button:active {
+  background-color: #3e8e41;
+  transform: translateY(3px);
+}
+
+img {
+  display: block;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: #F2F3F5;
+  color: Black;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 105%;
+  left: 15%;
+  margin-left: 0px;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.sub-category, .sub-sub-category {
   display: none;
 }
 
