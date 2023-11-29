@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./static/styles.css">
-        
-        <title>Document</title>
-
-        
+        <title>PM Notification Assistant</title>
     </head>
-
-    <header style="text-align:center;"><b>PM Notification Assistant</b></header>
-
+    <script src="./static/javaScript.js"></script>
     <body>
 
-        <script src="./static/javaScript.js"></script>
+        <h1 class="header1">PM Notification Assistant</h1>
 
-        <h1 dir="rtl" style="text-align:center;">اختر نوع العطل   <span style="text-align:center; font-family: calibri"><b>Choose Breakdown Type</b></span></h1>
-        <p dir="rtl" style="text-align:center" >اضغط على <b><span style="color: #003d89">المربع الأزرق</span></b>  لنسخ&nbsp;&nbsp; Press <b><span style="color: #003d89">Blue Button</span></b> to copy&nbsp;&nbsp;<span class="highlight">Notification Short Text</span></p>
+        <h1 class="header2">            
+            <span class="header2-english"><b>Choose Breakdown Type</b></span>
+            <span class="header2-arabic">اختر نوع العطل</span>
+        </h1>
+
+        <p class="note">
+            اضغط على
+             <span class="bold-blue">المربع الأزرق</span> لنسخ Press <span class="bold-blue">Blue Button</span> to copy 
+             <span class="highlight">Notification Short Text</span>
+            </p>
+
         <!-- Table for the main categories -->
-        <br>
-
         <table>
             <tr>
-
                 <td class="tooltip">
                     <img src="Cutting BD.png" alt="Cutting BD"  >
-                    <button type="button" class="button" onclick="copyText(this); showSubcategories('Cutting BD')" onmouseout="outFunc(this)">Cutting BD</button>
+                    <button type="button" onclick="copyText(this); showSubcategories('Cutting BD')" onmouseout="setToolBoxTextToDefault(this)">Cutting BD</button>
                     <span class="tooltiptext">Click to Copy</span>
                 </td> 
 
                 <td  class="tooltip">
-                    <img src="Crimping BD.png" alt="Crimping BD" >
-                    <button type="button" class="button" onclick="copyText(this); showSubcategories('Crimping BD')" onmouseout="outFunc(this)">Crimping BD</button>
+                    <img src="Shrinking BD.png" alt="Shrinking BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Shrinking BD')" onmouseout="setToolBoxTextToDefault(this)">Shrinking BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
+                </td>  
+                  
+                <td  class="tooltip">
+                    <img src="Testing BD.png" alt="Testing BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Testing BD')" onmouseout="setToolBoxTextToDefault(this)">Testing BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
+                </td>  
+                  
+                <td  class="tooltip">
+                    <img src="Stripping BD.png" alt="Stripping BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Stripping BD')" onmouseout="setToolBoxTextToDefault(this)">Stripping BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
+                </td>  
+                  
+                <td  class="tooltip">
+                    <img src="Twisting BD.png" alt="Twisting BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Twisting BD')" onmouseout="setToolBoxTextToDefault(this)">Twisting BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
+                </td>  
+                  
+                <td  class="tooltip">
+                    <img src="Welding BD.png" alt="Welding BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Welding BD')" onmouseout="setToolBoxTextToDefault(this)">Welding BD</button>
+                    <span class="tooltiptext">Click to Copy</span>
+                </td>  
+                  
+                <td  class="tooltip">
+                    <img src="Taping BD.png" alt="Taping BD" >
+                    <button type="button" onclick="copyText(this); showSubcategories('Taping BD')" onmouseout="setToolBoxTextToDefault(this)">Taping BD</button>
                     <span class="tooltiptext">Click to Copy</span>
                 </td>  
                   
@@ -52,8 +84,5 @@
                 <tr class="sub-sub-category-row"></tr>
             </table>  
         </div>
-        <!-- <div id="subcat-buttons"></div> -->
-        <!-- <div id="subsubcat-buttons"></div> -->
-    
     </body>
 </html>

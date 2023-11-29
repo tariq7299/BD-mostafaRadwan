@@ -5,11 +5,12 @@ function copyText(button) {
     tooltip.innerHTML = "Copied";
   }
 
-  function outFunc(button) {
+  function setToolBoxTextToDefault(button) {
     var tooltip = button.nextElementSibling;
     tooltip.innerHTML = "Click to Copy";
   }
   
+
   function showSubcategories(category) {
 
     document.querySelector('.sub-sub-category').style.display = 'none';
@@ -31,29 +32,6 @@ function copyText(button) {
         "Taping BD": ["Taping M/C"],
         "Soldering BD": ["Solder"]
     };
-    // var subsubcategories = {
-    //   "Applicator Problem": ["Scan Applicator ID"], 
-    //   "Schleuniger": ["Machine Problem"], 
-    //   "Komax": ["CAO Problem", "CFA Problem", "Crimping Problem", "Gripper Problem", "PC Problem", "Press Problem", "Seal station Problem", "Stripping Problem", "Swivel Problem", "Topwin Problem", "Wire Drive Problem", "Wire length Problem", "Wire Tray Problem"],
-    //   "Ulmer": ["Ulmer Machine Problem"],
-    //   "Applicator Change": ["Applicator Change Problem"], 
-    //   "Crimping Press": ["Crimping Press Problem"], 
-    //   "DSG Canusa": ["Heaters Problem", "Shrinking Cap Problem", "Shrinking Machine Problem"], 
-    //   "Heat Gun": ["Heat Gun Problem", "Shrink Problem"], 
-    //   "Clip Gun": ["Clip Gun Problem"], 
-    //   "Grommet": ["Grommet Problem"], 
-    //   "layup": ["layup Problem"], 
-    //   "Line & Carousel": ["المبة لا تعمل", "أعطال المحرك", "سرعة المحرك غير ثابتة"], 
-    //   "Pin Punching": ["Pin Punching Problem"], 
-    //   "Printer": ["Printer Problem"], 
-    //   "Seal Machine": [" الماكينة لا تعمل", "السيل لا يدخل التراك"], 
-    //   "Test Module": ["Test Module number is:"], 
-    //   "Test Table": ["التست لا يعمل", "الكشاف  لا يعمل", "وجود مشكلة فى الاسكان"], 
-    //   "Twisting M/C": ["Twist Clamp Problem", "Twist Door problem", "Twist Problem"], 
-    //   "USS M/C": ["Terminal Change", "Welding Machine Problem", "Welding Problem"], 
-    //   "Taping M/C": ["Tapping problem", "Tapping Touch Screen Problem"], 
-    //   "Solder": ["Solder Problem"]
-    // };
 
     for (var i = 0; i < subcategories[category].length; i++) {
 
@@ -74,7 +52,7 @@ function copyText(button) {
         showSubsubcategories(this.innerHTML);
       }
       button.addEventListener("mouseout", function() {
-        outFunc(this);
+        setToolBoxTextToDefault(this);
       });
 
       td.appendChild(button);
@@ -135,7 +113,7 @@ function copyText(button) {
       }
 
       button.addEventListener("mouseout", function() {
-        outFunc(this);
+        setToolBoxTextToDefault(this);
       });
 
     
