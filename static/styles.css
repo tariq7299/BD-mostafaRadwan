@@ -39,6 +39,15 @@ table {
   margin: auto;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 button {
   background-color: #003d89;
   border: none;
@@ -52,6 +61,7 @@ button {
   font-size: 24px;
   margin: 3px 1px;
   cursor: pointer;
+  white-space: nowrap;
 }
 button:hover {
   background-color: #00bd68;
@@ -71,6 +81,7 @@ img {
 .tooltip {
   position: relative;
   display: inline-block;
+  max-width: 225px;
 }
 .tooltip .tooltiptext {
   visibility: hidden;

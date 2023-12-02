@@ -49,6 +49,15 @@ $tertiary-color: #3e8e41;
         margin:auto;
     }
 
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
     button {
 
         background-color: #003d89;
@@ -64,6 +73,7 @@ $tertiary-color: #3e8e41;
         font-size: 24px;
         margin: 3px 1px;
         cursor: pointer;
+        white-space: nowrap;
 
         &:hover {
             background-color: $secondary-color;
@@ -87,6 +97,7 @@ $tertiary-color: #3e8e41;
         
         position: relative;
         display: inline-block;
+        max-width: 225px;
 
         .tooltiptext {
             visibility: hidden;
